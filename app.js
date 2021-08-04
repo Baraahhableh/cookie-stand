@@ -11,7 +11,7 @@ div.appendChild(ul)
 
 
 let workingHours = ['6am:', '7am:', '8am:', '9am:', '10am:', '11am:', '12pm:', '1pm:', '2pm:', '3pm:', '4pm:', '5pm:', '6pm:', '7pm:'];
-let locationArr =[];
+let locationArr = [];
 
 
 
@@ -25,7 +25,7 @@ function custNumPerHour(min, max) {
 }
 
 
-function Stores(name, minCust,maxCust, AverageCookie) {
+function Stores(name, minCust, maxCust, AverageCookie) {
     
     this.name = name;
     this.minCust = minCust;
@@ -36,42 +36,53 @@ function Stores(name, minCust,maxCust, AverageCookie) {
     locationArr.push(this);
 }
 
-let seattle = new Stores ('seattle', 23, 65, 6.3);
-let tokyo = new Stores ('tokyo', 3, 24, 1.2);
-let dubai = new Stores ('dubai', 11, 38, 3.7);
-let paris = new Stores ('paris', 20, 38, 2.3);
-let lima = new Stores ('lima', 2, 16, 4.6);
+let seattle = new Stores('seattle', 23, 65, 6.3);
+let tokyo = new Stores('tokyo', 3, 24, 1.2);
+let dubai = new Stores('dubai', 11, 38, 3.7);
+let paris = new Stores('paris', 20, 38, 2.3);
+let lima = new Stores('lima', 2, 16, 4.6);
 
 console.log(locationArr);
 
 
-Stores
+Stores.prototype.custNumPerHour = function(min, max) {
+    let numberOfCustomer = Math.floor(Math.random() * (max - min + 1) + min);
+    return numberOfCustomer
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let seattle = {
-    name: 'Seattle' ,
-    minCust: 23,
-   
-    maxCust: 65,
-    AverageCookie: 6.3, 
+Stores.prototype.CustPerHour = function(){
     
+    for (let i = 0; i < workingHours.length; i++) {
+
+
+        this.ArrayForCustomers.push(this.custNumPerHour(this.minCust, this.maxCust));
+
+        this.ArrayForCookies[i] = Math.floor(this.ArrayForCustomers[i] * this.AverageCookie)
+    }
+
+}
+
+
+let div = document.getElementById('cookies');
+let table = document.createElement('table');
+div.appendChild(table);
+
+let headRow = document.createElement('tr');
+table.appendChild(headRow);
+headRow.textContent = ' ';
+
+
+let th = document.createElement('th');
+
+
+
+
+Location.prototype.renderTable = function () {
+    
+
+    let firstRow = document.createElement('tr');
+    table.appendChild(firstRow);
+    firstRow.textContent = this.name;
     ArrayForCustomers: [],
     ArrayForCookies: [],
 
@@ -109,19 +120,17 @@ let seattle = {
 
     },
     
-}
-
-seattle.CustPerHour();
-
-seattle.createTheList();
-
-let tokyo ={
-    name: 'Tokyo' ,
-    minCust: 3,
+    for (let i = 0; i < workingHours.length; i++) {
+        let td = document.createElement('td');
+        firstRow.appendChild(td);
+        td.textContent = this.ArrayForCookies[i];
+    }
     
+  
     
-    maxCust: 24,
-    AverageCookie: 1.2,
+    headRow.appendChild(th);
+    th.textContent = 'Daily Location Total';
+    
     
     ArrayForCustomers: [],
     ArrayForCookies: [],
@@ -275,10 +284,16 @@ dubai.createTheList();
 
 paris.CustPerHour();
 
-paris.createTheList();
-      
+function header() {
     
-    
+    for (let i = 0; i < workingHours.length; i++) {
+        let th1 = document.createElement('th');
+        headRow.appendChild(th1);
+        th1.textContent = workingHours[i];     
+        
+    }
+    }
+    header();
     let lima ={
     name: 'Lima' ,
     minCust: 2,
@@ -328,13 +343,10 @@ paris.createTheList();
     },
 
 
-    
-}
 
-lima.CustPerHour();
-
-
-lima.createTheList();
-    
-
+    for (let i = 0; i < locationArr.length; i++) {
+        locationArr[i].CustPerHour();
+        locationArr[i].renderTable();
+    }
+    // seattle.renderTable();
 
