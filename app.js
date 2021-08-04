@@ -4,7 +4,7 @@
 
 let div = document.getElementById('cookies');
 let ul = document.createElement('ul');
-
+div.appendChild(ul)
 
 
 let workingHours = ['6am:', '7am:', '8am:', '9am:', '10am:', '11am:', '12pm:', '1pm:', '2pm:', '3pm:', '4pm:', '5pm:', '6pm:', '7pm:'];
@@ -34,7 +34,7 @@ let seattle = {
             
             this.ArrayForCustomers.push(custNumPerHour(this.minCust, this.maxCust));
             
-            this.ArrayForCookies[i] = this.ArrayForCustomers[i]*this.AverageCookie
+            this.ArrayForCookies[i] = Math.floor(this.ArrayForCustomers[i]*this.AverageCookie)
         }
         
     },
@@ -45,15 +45,18 @@ let seattle = {
         
         for (let i = 0; i < workingHours.length; i++) {
             
-            let result = [workingHours , this.ArrayForCookies + ' cookies']
+            //let result = [workingHours , this.ArrayForCookies + ' cookies']
             
             let li = document.createElement('li');
             
             ul.appendChild(li);
          
             
-            li.textContent =  result 
-            document.write(result);
+            //li.textContent =  result 
+
+            li.textContent =  workingHours[i] + this.ArrayForCookies[i] + ' cookies'
+
+            //document.write(result);
         }
 
     },
@@ -81,7 +84,7 @@ let tokyo ={
             
             this.ArrayForCustomers.push(custNumPerHour(this.minCust, this.maxCust));
            
-            this.ArrayForCookies[i] = this.ArrayForCustomers[i]*this.AverageCookie
+            this.ArrayForCookies[i] =  Math.floor(this.ArrayForCustomers[i]*this.AverageCookie)
         }
        
     },
@@ -90,13 +93,19 @@ let tokyo ={
     createTheList: function () {
         
         for (let i = 0; i < workingHours.length; i++) {
-            let result = [workingHours , (this.ArrayForCookies[i] + ' cookies')]
+            
+            //let result = [workingHours , this.ArrayForCookies + ' cookies']
             
             let li = document.createElement('li');
-           
-            ul.appendChild(li);
             
-            li.textContent =  result 
+            ul.appendChild(li);
+         
+            
+            //li.textContent =  result 
+
+            li.textContent =  workingHours[i] + this.ArrayForCookies[i] + ' cookies'
+
+            //document.write(result);
             
         }
 
@@ -128,7 +137,7 @@ let dubai ={
             
             this.ArrayForCustomers.push(custNumPerHour(this.minCust, this.maxCust));
             
-            this.ArrayForCookies[i] = this.ArrayForCustomers[i]*this.AverageCookie
+            this.ArrayForCookies[i] =  Math.floor(this.ArrayForCustomers[i]*this.AverageCookie)
         }
         
     },
@@ -137,13 +146,19 @@ let dubai ={
     createTheList: function () {
         
         for (let i = 0; i < workingHours.length; i++) {
-            let result = [workingHours , (this.ArrayForCookies[i] + ' cookies')]
+           
+            //let result = [workingHours , this.ArrayForCookies + ' cookies']
             
             let li = document.createElement('li');
             
             ul.appendChild(li);
-          
-            li.textContent =  result 
+         
+            
+            //li.textContent =  result 
+
+            li.textContent =  workingHours[i] + this.ArrayForCookies[i] + ' cookies'
+
+            //document.write(result);
            
         }
 
@@ -179,7 +194,7 @@ dubai.createTheList();
             
             this.ArrayForCustomers.push(custNumPerHour(this.minCust, this.maxCust));
            
-            this.ArrayForCookies[i] = this.ArrayForCustomers[i]*this.AverageCookie
+            this.ArrayForCookies[i] =  Math.floor(this.ArrayForCustomers[i]*this.AverageCookie)
         }
        
     },
@@ -190,13 +205,19 @@ dubai.createTheList();
         for (let i = 0; i < workingHours.length; i++) {
            
            
-            let result = [workingHours , (this.ArrayForCookies[i] + ' cookies')]
+           
+            //let result = [workingHours , this.ArrayForCookies + ' cookies']
             
             let li = document.createElement('li');
-           
+            
             ul.appendChild(li);
-           
-            li.textContent =  result 
+         
+            
+            //li.textContent =  result 
+
+            li.textContent =  workingHours[i] + this.ArrayForCookies[i] + ' cookies'
+
+            //document.write(result); 
             
         }
 
@@ -229,7 +250,7 @@ paris.createTheList();
             this.ArrayForCustomers.push(custNumPerHour(this.minCust, this.maxCust));
             
             
-            this.ArrayForCookies[i] = this.ArrayForCustomers[i]*this.AverageCookie
+            this.ArrayForCookies[i] =  Math.floor(this.ArrayForCustomers[i]*this.AverageCookie)
         }
         
     },
@@ -239,15 +260,19 @@ paris.createTheList();
         
         for (let i = 0; i < workingHours.length; i++) {
            
-            let result = [workingHours , (this.ArrayForCookies[i] + ' cookies')]
-          
+            
+            //let result = [workingHours , this.ArrayForCookies + ' cookies']
+            
             let li = document.createElement('li');
             
-            
             ul.appendChild(li);
+         
             
-            
-            li.textContent =  result 
+            //li.textContent =  result 
+
+            li.textContent =  workingHours[i] + this.ArrayForCookies[i] + ' cookies'
+
+            //document.write(result);
            
         }
 
