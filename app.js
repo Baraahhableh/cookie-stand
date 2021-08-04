@@ -2,8 +2,11 @@
 
 
 
+
 // let div = document.getElementById('cookies');
 // let ul = document.createElement('ul');
+let div = document.getElementById('cookies');
+let ul = document.createElement('ul');
 
 
 
@@ -13,6 +16,10 @@ let locationArr =[];
 
 
 Stores.prototype.custNumPerHour(min, max) {
+
+
+
+function custNumPerHour(min, max) {
     let numberOfCustomer = Math.floor(Math.random() * (max - min + 1) + min);
     return numberOfCustomer
 }
